@@ -6,10 +6,12 @@ function App() {
   const [userValue, setUserValue] = useState([]);
   const [solution, setSolution] = useState([]);
 
+  const [difficulty, setDifficulty] = useState("easy");
+
   async function fetchSudokuSolution() {
     try {
       const response = await fetch(
-        "https://api.api-ninjas.com/v1/sudokugenerate?difficulty=easy",
+        `https://api.api-ninjas.com/v1/sudokugenerate?difficulty=${difficulty}`,
         {
           method: "GET",
           headers: {
@@ -28,6 +30,11 @@ function App() {
       console.error("Error:", error);
     }
   }
+
+  useEffect(() => {
+    fetchSudokuSolution();
+  }, []);
+
   useEffect(() => {
     if (solvedBoard.length > 0) {
       setUserValue(
@@ -68,12 +75,27 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    fetchSudokuSolution();
-  }, []);
-
   return (
     <>
+      <div className="mb-4 ">
+        <label className="mr-2 font-semibold">Difficulty:</label>
+        <select
+          value={difficulty}
+          onChange={(e) => setDifficulty(e.target.value)}
+          className="p-2 border border-gray-300 rounded"
+        >
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+      <button
+        onClick={fetchSudokuSolution}
+        className="px-4 py-2 bg-green-600 text-white rounded mt-2 hover:bg-green-700"
+      >
+        Generate Puzzle
+      </button>
+
       <div className="flex items-center justify-center ">
         <div>
           <div className="p-5 ">
