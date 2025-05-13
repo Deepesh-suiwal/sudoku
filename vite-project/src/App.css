@@ -1,2 +1,91 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.two {
+  background-color: #d57cb7;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  border: 2px solid #000;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+td {
+  border: 1px solid #ccc;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+td:nth-child(3),
+td:nth-child(6) {
+  border-right: 2px solid #000;
+}
+
+tr:nth-child(3) td,
+tr:nth-child(6) td {
+  border-bottom: 2px solid #000;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+  transition: border-color 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #e0f2fe;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+button:active {
+  background-color: #1d4ed8;
+}
 
